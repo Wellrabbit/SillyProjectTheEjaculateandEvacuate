@@ -1,17 +1,31 @@
 package ctec.sillyprojecttheejaculateandevacuate;
 
-import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.app.AppCompatActivity;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
 public class ColorChangeActivity extends AppCompatActivity {
+
+        private Button colorChangeButton;
+        private RelativeLayout background;
+        private TextView sillywords;
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_change);
+       
+        sillyWords = (textView) findViewID(R.id.sillyWords);
+        background = (RelativeLayout) findViewById(R.id.appBackground);
+        colorChangeButton = (Button) findViewById(R.id.sillybutton);
     }
+
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
