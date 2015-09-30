@@ -7,6 +7,8 @@ import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.view.View;
+import android.graphics.Color;
 
 public class ColorChangeActivity extends AppCompatActivity {
 
@@ -20,10 +22,12 @@ public class ColorChangeActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_color_change);
-       
-        sillyWords = (textView) findViewID(R.id.sillyWords);
+
+        sillywords = (TextView) findViewById(R.id.sillyWords);
         background = (RelativeLayout) findViewById(R.id.appBackground);
         colorChangeButton = (Button) findViewById(R.id.sillybutton);
+
+        setupListeners();
     }
 
 
@@ -45,7 +49,40 @@ public class ColorChangeActivity extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
-
-        return super.onOptionsItemSelected(item);
+    return false;
     }
+
+        private void changeColors()
+    {
+        int redColor;
+        int greenColor;
+        int blueColor;
+
+        redColor = (int) (Math.random() * 256);
+        greenColor = (int) (Math.random() * 256);
+        blueColor = (int) (Math.random() * 256);
+
+
+        background.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
+
+        redColor = (int) (Math.random()* 256);
+        blueColor = (int) (Math.random() * 256);
+        greenColor = (int) (Math.random() * 256);
+
+        colorChangeButton.setBackgroundColor(Color.rgb(redColor, greenColor, blueColor));
+    }
+
+        private void setupListeners()
+    {
+        colorChangeButton.setOnClickListener(new View.OnClickListener()
+        {
+            @Override
+            public void onClick(View buttonView)
+            {
+                changeColors();
+            }
+        });
+    }
+
+
 }
